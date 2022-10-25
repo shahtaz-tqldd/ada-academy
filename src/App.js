@@ -1,13 +1,11 @@
 import './App.css';
-import logo from './assets/icons/logo.png'
-import Navbar from './components/Navbar/Navbar';
-import Homepage from './pages/Homepage/Homepage';
-
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes/Routes';
 function App() {
+  
   return (
     <div className="App">
-      <Navbar/>
-      <Homepage/>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
