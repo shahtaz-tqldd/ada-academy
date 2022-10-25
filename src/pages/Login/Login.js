@@ -8,10 +8,24 @@ import { AuthContext } from '../../contexts/AuthProvider';
 import {GoogleAuthProvider} from 'firebase/auth';
 
 const Login = () => {
-  const { googleSignIn } = useContext(AuthContext);
+  const { googleSignIn, signIn } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
+  const handleSubmit = event =>{
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+      .then(result => {
+        const user = result.user;
+        console.log(user)
+        navigate('/');
+      })
+      .catch(error=>console.error(error))
+  }
   const googleProvider = new GoogleAuthProvider()
   const handleGoogleSignIn = () =>{
     googleSignIn(googleProvider)
@@ -29,14 +43,14 @@ const Login = () => {
         </div>
         <div className='login-form'>
           <h2>Login Form</h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <label htmlFor="email">Your Email</label>
             <input type="email" name="email" id="" placeholder='username@email.com' />
             
             <label htmlFor="password">Your Password</label>
-            <input type="password" name="passwprd" id="" placeholder='password' />
+            <input type="password" name="password" id="" placeholder='password' />
 
-            <button>Login</button>
+            <button type="submit">Login</button>
           </form>
           
           <div className='hr-line'>
