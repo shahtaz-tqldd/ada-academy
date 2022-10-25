@@ -6,7 +6,7 @@
 .login-container{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 40px;
 }
 
@@ -14,8 +14,7 @@
     width: 500px;
 }
 .login-img img{
-    height: 400px;
-
+    width: 100%;
 }
 
 .login-form{
@@ -64,11 +63,12 @@
 .hr-line{
     display: flex;
     align-items: center;
-    margin: 25px 0;
+    justify-content: center;
+    margin: 30px 0;
 }
 .hr-line span{
     height: 1px;
-    width: 100%;
+    width: 40%;
     background-color: rgb(153, 153, 153);
 }
 .hr-line p{
@@ -115,6 +115,15 @@
 .popup-login button img{
     height: 20px;
     margin-right: 10px;
+}
+
+.login-signin{
+    text-align: center;
+    margin-top: 25px;
+}
+.login-signin a{
+    text-decoration: none;
+    color: #1b7eff;
 }
 
 @media screen and (max-width: 767px) {

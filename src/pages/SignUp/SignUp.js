@@ -1,13 +1,13 @@
 import React from 'react';
 import '../Login/Login.css';
-import loginImg from '../../assets/images/login2.webp';
+import loginImg from '../../assets/images/register.png';
+import {Link} from 'react-router-dom';
 
 const Signup = () => {
   return (
     <div className='container login-container'>
       <div className='login-img'>
             <img src={loginImg} alt="login to ada academy" />
-            <h2>Open an account</h2>
         </div>
         <div className='login-form'>
           <h2>Resgistration Form</h2>
@@ -41,6 +41,9 @@ const Signup = () => {
               <img src='https://cdn.iconscout.com/icon/free/png-512/github-3691248-3073768.png' alt='github sign in'/>
               Sign Up with Github</button>
           </div>
+        <div className='login-signin'>
+          Already have an account? <Link to='/login'>Login Here</Link>
+        </div>
         </div>
         
     </div>

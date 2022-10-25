@@ -1,6 +1,7 @@
 import React from 'react';
 import './Login.css';
 import loginImg from '../../assets/images/login.png';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
@@ -9,7 +10,7 @@ const Login = () => {
             <img src={loginImg} alt="login to ada academy" />
         </div>
         <div className='login-form'>
-          <h2>Login to Ada Academy</h2>
+          <h2>Login Form</h2>
           <form>
             <label htmlFor="email">Your Email</label>
             <input type="email" name="email" id="" placeholder='username@email.com' />
@@ -34,6 +35,9 @@ const Login = () => {
               <img src='https://cdn.iconscout.com/icon/free/png-512/github-3691248-3073768.png' alt='github sign in'/>
               Login with Github</button>
           </div>
+          <div className='login-signin'>
+          Don't have any account? <Link to='/sign-up'>Create an Account</Link>
+        </div>
         </div>
     </div>
   )
