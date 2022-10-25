@@ -1,0 +1,130 @@
+.container{
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.login-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.login-img{
+    width: 500px;
+}
+.login-img img{
+    height: 400px;
+
+}
+
+.login-form{
+    width: 500px;
+    background-color: #ccebff;
+    padding: 20px 0;
+    /* box-shadow: 5px 10px 10px 7px #167D7F; */
+}
+.login-form h2{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-form form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+}
+.login-form form label{
+    margin-top: 20px;
+}
+.login-form form input{
+    padding: 15px 20px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+.login-form form input:focus{
+    outline: 2px solid #98D7C2;
+}
+
+.login-form form button{
+    padding: 10px 0;
+    background-color: #167D7F;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #fff;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.hr-line{
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+}
+.hr-line span{
+    height: 1px;
+    width: 100%;
+    background-color: rgb(153, 153, 153);
+}
+.hr-line p{
+    padding: 0 20px;
+}
+
+/* popup login */
+.popup-login{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.popup-login button{
+    padding: 10px 0;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    color: rgb(25, 117, 255);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.popup-login button:nth-child(2n){
+    background-color: #ffffff;
+    color: rgb(61, 61, 61);
+}
+
+.popup-login button:nth-child(n):hover{
+    background-color: #1bbeff;
+    color: rgb(255, 255, 255);
+    transition: 0.25s;
+}
+.popup-login button:nth-child(2n):hover{
+    background-color: #292929;
+    color: rgb(255, 255, 255);
+    transition: 0.25s;
+}
+
+.popup-login button img{
+    height: 20px;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 767px) {
+.login-container{
+    flex-direction: column;
+}
+.login-container{
+    margin-top: 0px;
+}
+.login-form{
+    padding: 30px 20px;
+}
+}

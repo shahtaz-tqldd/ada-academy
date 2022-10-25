@@ -5,6 +5,8 @@ nav{
     max-width: 1200px;
     margin: 0 auto;
     padding: 15px 10px;
+    overflow: hidden;
+    
 }
 .logo img{
     height: 40px;
@@ -13,9 +15,28 @@ nav{
 .nav-items a{
     text-decoration: none;
     margin: 0 20px;
+    color: rgb(36, 156, 255);
 }
 
-.btn-link a{
-    border: 1px solid #222;
-    padding: 8px 20px;
+.btn-link span{
+    width: 200px;
+    margin: 0 8px;
+    border: 1px solid rgb(36, 156, 255);
+    border-radius: 5px;
+    padding: 5px 0;
+    cursor: pointer;
+}
+.btn-link span:nth-child(1):hover{
+    background-color: rgb(36, 156, 255);
+    color: aliceblue;
+}
+
+.btn-link span:nth-child(1):hover a{
+    color: aliceblue;
+}
+.btn-link span:nth-child(2){
+    background-color: rgb(36, 156, 255);
+}
+.btn-link span:nth-child(2) a{
+    color: aliceblue;
 }
