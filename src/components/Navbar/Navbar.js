@@ -3,13 +3,19 @@ import './Navbar.css'
 import logo from '../../assets/icons/logo.png';
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faSignIn, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faSignIn, faXmark, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false)
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+    
+    const handleLogOut = () =>{
+        logOut()
+            .then(()=>{})
+            .catch(err => console.error(err))
+    }
     return (
         <nav>
             <div className='nav-container'>
@@ -32,16 +38,23 @@ const Navbar = () => {
                 </div>
                 <div className='nav-items2'>
                     {
-                        user? 
-                        <div className='user-profile'>
-                            {user.displayName}
-                            <img src= {user.photoURL} alt={user.displayName} />
-                        </div>
-                        : 
-                        <>
-                        <Link to='/login'>Login</Link>
-                        <Link to='/sign-up'>Sign Up</Link>
-                        </>
+                        user ?
+                            <div className='user-profile'>
+                                {user.displayName}
+                                <img src={user.photoURL} alt={user.displayName} />
+                                <div className="dropdown">
+                                <FontAwesomeIcon icon={faCaretDown} />
+                                    <div className="dropdown-content">
+                                        
+                                        <button onClick={handleLogOut}>Logout</button>
+                                    </div>
+                                </div>
+                            </div>
+                            :
+                            <>
+                                <Link to='/login'>Login</Link>
+                                <Link to='/sign-up'>Sign Up</Link>
+                            </>
                     }
                 </div>
 
