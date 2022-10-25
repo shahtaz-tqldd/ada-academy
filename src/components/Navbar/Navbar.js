@@ -4,9 +4,13 @@ import logo from '../../assets/icons/logo.png';
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faSignIn, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false)
+    const { user } = useContext(AuthContext);
+    const {displayName} = user;
     return (
         <nav>
             <div className='nav-container'>
@@ -28,8 +32,14 @@ const Navbar = () => {
                     <Link to='/blogs'>Blogs</Link>
                 </div>
                 <div className='nav-items2'>
-                    <Link to='/login'>Login</Link>
-                    <Link to='/sign-up'>Sign Up</Link>
+                    {
+                        displayName? displayName 
+                        : 
+                        <>
+                        <Link to='/login'>Login</Link>
+                        <Link to='/sign-up'>Sign Up</Link>
+                        </>
+                    }
                 </div>
 
                 <div className='toggle-icon'>
