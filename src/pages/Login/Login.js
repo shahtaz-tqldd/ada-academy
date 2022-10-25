@@ -2,8 +2,23 @@ import React from 'react';
 import './Login.css';
 import loginImg from '../../assets/images/login.png';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider';
+
+import {GoogleAuthProvider} from 'firebase/auth';
 
 const Login = () => {
+  const { googleSignIn } = useContext(AuthContext);
+
+  const googleProvider = new GoogleAuthProvider()
+  const handleGoogleSignIn = () =>{
+    googleSignIn(googleProvider)
+      .then(result=>{
+        const user = result.user;
+        console.log(user)
+      })
+      .catch(error=>console.error(error))
+  }
   return (
     <div className='container login-container'>
         <div className='login-img'>
@@ -28,7 +43,7 @@ const Login = () => {
           </div>
 
           <div className='popup-login'>
-            <button>
+            <button onClick={handleGoogleSignIn}>
               <img src='https://www.shareicon.net/data/512x512/2016/07/10/119930_google_512x512.png' alt='google sign in'/>
               Login with Google</button>
             <button>

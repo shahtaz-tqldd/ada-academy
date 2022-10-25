@@ -10,7 +10,6 @@ import { AuthContext } from '../../contexts/AuthProvider';
 const Navbar = () => {
     const [open, setOpen] = useState(false)
     const { user } = useContext(AuthContext);
-    const {displayName} = user;
     return (
         <nav>
             <div className='nav-container'>
@@ -33,7 +32,11 @@ const Navbar = () => {
                 </div>
                 <div className='nav-items2'>
                     {
-                        displayName? displayName 
+                        user? 
+                        <div className='user-profile'>
+                            {user.displayName}
+                            <img src= {user.photoURL} alt={user.displayName} />
+                        </div>
                         : 
                         <>
                         <Link to='/login'>Login</Link>

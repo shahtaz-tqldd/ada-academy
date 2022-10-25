@@ -76,6 +76,24 @@ nav{
     width: 35px;
 }
 
+
+/* ------------------------------
+user-profile
+--------------------------------- */
+.user-profile{
+    display: flex;
+    align-items: center;
+}
+.user-profile img{
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 15px;
+    border: 3px solid rgb(7, 213, 158);
+
+}
+
 @media screen and (max-width: 767px) {
     nav{
         background-color: rgb(3, 199, 140);
