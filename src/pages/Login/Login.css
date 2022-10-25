@@ -75,6 +75,14 @@
     padding: 0 20px;
 }
 
+.err-msg{
+    margin-top: 10px;
+    background-color: #ffd2d2;
+    padding: 10px;
+    border-radius: 5px;
+    color: rgb(255, 7, 7);
+}
+
 /* popup login */
 .popup-login{
     display: flex;

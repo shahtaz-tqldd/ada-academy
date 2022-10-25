@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import './Navbar.css'
 import logo from '../../assets/icons/logo.png';
-import { Link } from 'react-router-dom'
+import defaultImg from '../../assets/icons/default.png';
+import { Link, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faSignIn, faXmark, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { useContext } from 'react';
@@ -10,10 +11,10 @@ import { AuthContext } from '../../contexts/AuthProvider';
 const Navbar = () => {
     const [open, setOpen] = useState(false)
     const { user, logOut } = useContext(AuthContext);
-    
-    const handleLogOut = () =>{
+    const navigate = useNavigate()
+    const handleLogOut = () => {
         logOut()
-            .then(()=>{})
+            .then(() => navigate('/login'))
             .catch(err => console.error(err))
     }
     return (
@@ -40,12 +41,16 @@ const Navbar = () => {
                     {
                         user ?
                             <div className='user-profile'>
-                                {user.displayName}
-                                <img src={user.photoURL} alt={user.displayName} />
+                                {user?.displayName}
+                                {
+                                    user.photoURL? <img src={user.photoURL} alt={user.displayName} />
+                                    : <img src = {defaultImg} alt={user.displayName} />
+
+                                }
                                 <div className="dropdown">
-                                <FontAwesomeIcon icon={faCaretDown} />
+                                    <FontAwesomeIcon icon={faCaretDown} />
                                     <div className="dropdown-content">
-                                        
+
                                         <button onClick={handleLogOut}>Logout</button>
                                     </div>
                                 </div>
@@ -59,7 +64,13 @@ const Navbar = () => {
                 </div>
 
                 <div className='toggle-icon'>
-                    <Link to='/login'><FontAwesomeIcon icon={faSignIn} /></Link>
+                    {
+                        user ?
+                            <div className='user-profile'>
+                                <img src={user.photoURL} alt={user.displayName} />
+                            </div>
+                            : <Link to='/login'><FontAwesomeIcon icon={faSignIn} /></Link>
+                    }
                 </div>
             </div>
         </nav>

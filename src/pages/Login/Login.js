@@ -1,7 +1,7 @@
 import React from 'react';
 import './Login.css';
 import loginImg from '../../assets/images/login.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
 
@@ -10,12 +10,15 @@ import {GoogleAuthProvider} from 'firebase/auth';
 const Login = () => {
   const { googleSignIn } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
   const googleProvider = new GoogleAuthProvider()
   const handleGoogleSignIn = () =>{
     googleSignIn(googleProvider)
       .then(result=>{
         const user = result.user;
         console.log(user)
+        navigate('/');
       })
       .catch(error=>console.error(error))
   }
