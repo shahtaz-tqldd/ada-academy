@@ -1,0 +1,14 @@
+.home-container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.header-img img{
+    height: 400px;
+}
