@@ -6,14 +6,14 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 const Signup = () => {
   const [error, setError] = useState('')
-  const { createUser } = useContext(AuthContext)
+  const { createUser, updateUserProfile } = useContext(AuthContext)
 
   const handleSubmit = event => {
     event.preventDefault()
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
-    const photoUrl = form.photoUrl.value;
+    const photoURL = form.photoURL.value;
     const password1 = form.password1.value;
     const password2 = form.password2.value;
 
@@ -28,9 +28,10 @@ const Signup = () => {
       createUser(email, password1)
         .then(result => {
           const user = result.user;
-          console.log(user)
-          form.reset()
-          setError('')
+          console.log(user);
+          setError('');
+          form.reset();
+          handleUpdateUserProfile(name, photoURL)
         })
         .catch(err => {
           console.error(err);
@@ -38,6 +39,18 @@ const Signup = () => {
         })
     }
   }
+  const handleUpdateUserProfile = (name, photoURL) =>{
+    const profile = {
+      displayName: name,
+      photoURL : photoURL
+    }
+    updateUserProfile(profile)
+      .then((result)=>{
+        console.log(result)
+      })
+      .catch(err=>console.error(err))
+  }
+
   return (
     <div className='container login-container'>
       <div className='login-img'>
@@ -49,8 +62,8 @@ const Signup = () => {
           <label htmlFor="name">Your Full Name</label>
           <input type="text" name="name" id="" placeholder='Ex: Joe Don' />
 
-          <label htmlFor="photoUrl">Photo Url</label>
-          <input type="text" name="photoUrl" id="" placeholder='https://photo.jpeg' />
+          <label htmlFor="photoURL">Photo Url</label>
+          <input type="text" name="photoURL" id="" placeholder='https://photo.jpeg' />
 
           <label htmlFor="email">Your Email</label>
           <input type="email" name="email" id="" placeholder='username@email.com' required/>
