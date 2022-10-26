@@ -24,14 +24,18 @@ const Signup = () => {
       setError(`Your Password is too small`)
     }
 
-    if (password1.length > 6 && password1 === password2) {
+    if (password1.length >= 6 && password1 === password2) {
       createUser(email, password1)
         .then(result => {
           const user = result.user;
           console.log(user)
           form.reset()
+          setError('')
         })
-        .catch(err => console.error(err))
+        .catch(err => {
+          console.error(err);
+          setError(err.message);
+        })
     }
   }
   return (

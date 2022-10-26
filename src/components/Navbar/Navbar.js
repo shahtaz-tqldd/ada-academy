@@ -36,6 +36,7 @@ const Navbar = () => {
                     <Link to='/courses'>Courses</Link>
                     <Link to='/faq'>FAQ</Link>
                     <Link to='/blogs'>Blogs</Link>
+
                 </div>
                 <div className='nav-items2'>
                     {
@@ -67,7 +68,10 @@ const Navbar = () => {
                     {
                         user ?
                             <div className='user-profile'>
-                                <img src={user.photoURL} alt={user.displayName} />
+                                {
+                                user.photoURL? <img src={user.photoURL} alt={user.displayName} />
+                                : <img src = {defaultImg} alt={user.displayName} />
+                                }
                             </div>
                             : <Link to='/login'><FontAwesomeIcon icon={faSignIn} /></Link>
                     }

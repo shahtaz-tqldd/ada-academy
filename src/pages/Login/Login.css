@@ -76,11 +76,11 @@
 }
 
 .err-msg{
-    margin-top: 10px;
-    background-color: #ffd2d2;
+    margin: 10px 20px;
+    background-color: #ffdcdc;
     padding: 10px;
     border-radius: 5px;
-    color: rgb(255, 7, 7);
+    color: rgb(255, 60, 83);
 }
 
 /* popup login */

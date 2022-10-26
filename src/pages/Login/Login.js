@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Login.css';
 import loginImg from '../../assets/images/login.png';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
 
@@ -9,8 +9,12 @@ import {GoogleAuthProvider} from 'firebase/auth';
 
 const Login = () => {
   const { googleSignIn, signIn } = useContext(AuthContext);
+  const [err, setErr] = useState('')
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || '/';
 
   const handleSubmit = event =>{
     event.preventDefault();
@@ -22,9 +26,14 @@ const Login = () => {
       .then(result => {
         const user = result.user;
         console.log(user)
-        navigate('/');
+        setErr('');
+        form.reset();
+        navigate(from, {replace: true});
       })
-      .catch(error=>console.error(error))
+      .catch(error=>{  
+        console.error(error);
+        setErr(error.message);
+      })
   }
   const googleProvider = new GoogleAuthProvider()
   const handleGoogleSignIn = () =>{
@@ -32,9 +41,13 @@ const Login = () => {
       .then(result=>{
         const user = result.user;
         console.log(user)
-        navigate('/');
+        setErr('')
+        navigate(from, {replace: true});
       })
-      .catch(error=>console.error(error))
+      .catch(error=>{
+        console.error(error);
+        setErr('Your Email or password is incorrect');
+      })
   }
   return (
     <div className='container login-container'>
@@ -52,6 +65,14 @@ const Login = () => {
 
             <button type="submit">Login</button>
           </form>
+          
+          {
+            err ?
+              <div className='err-msg'>
+                <small>{err}</small>
+              </div>
+              : <span></span>
+          }
           
           <div className='hr-line'>
             <span></span>
