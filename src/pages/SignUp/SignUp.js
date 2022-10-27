@@ -1,12 +1,15 @@
 import React, { useContext, useState } from 'react';
 import '../Login/Login.css';
 import loginImg from '../../assets/images/register.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Signup = () => {
   const [error, setError] = useState('')
-  const { createUser, updateUserProfile } = useContext(AuthContext)
+  const { createUser, updateUserProfile, googleSignIn, githubSignIn } = useContext(AuthContext)
+
+  const navigate = useNavigate();
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -39,16 +42,42 @@ const Signup = () => {
         })
     }
   }
-  const handleUpdateUserProfile = (name, photoURL) =>{
+  const handleUpdateUserProfile = (name, photoURL) => {
     const profile = {
       displayName: name,
-      photoURL : photoURL
+      photoURL: photoURL
     }
     updateUserProfile(profile)
-      .then((result)=>{
+      .then((result) => {
         console.log(result)
       })
-      .catch(err=>console.error(err))
+      .catch(err => console.error(err))
+  }
+  const googleProvider = new GoogleAuthProvider()
+  const githubProvider = new GithubAuthProvider()
+
+  const handleGoogleSignIn = () => {
+    googleSignIn(googleProvider)
+      .then(result => {
+        const user = result.user;
+        console.log(user)
+        navigate('/');
+      })
+      .catch(error => {
+        console.error(error);
+      })
+  }
+
+  const handleGithubSignIn = () => {
+    githubSignIn(githubProvider)
+      .then(result => {
+        const user = result.user;
+        console.log(user)
+        navigate('/');
+      })
+      .catch(error => {
+        console.error(error);
+      })
   }
 
   return (
@@ -66,13 +95,13 @@ const Signup = () => {
           <input type="text" name="photoURL" id="" placeholder='https://photo.jpeg' />
 
           <label htmlFor="email">Your Email</label>
-          <input type="email" name="email" id="" placeholder='username@email.com' required/>
+          <input type="email" name="email" id="" placeholder='username@email.com' required />
 
           <label htmlFor="password">Your Password</label>
           <input type="password" name="password1" id="" placeholder='password' required />
 
           <label htmlFor="password">Confirm Password</label>
-          <input type="password" name="password2" id="" placeholder='confirm password' required/>
+          <input type="password" name="password2" id="" placeholder='confirm password' required />
 
           {
             error ?
@@ -92,14 +121,13 @@ const Signup = () => {
           <p>or</p>
           <span></span>
         </div>
-
         <div className='popup-login'>
-          <button>
+          <button onClick={handleGoogleSignIn}>
             <img src='https://www.shareicon.net/data/512x512/2016/07/10/119930_google_512x512.png' alt='google sign in' />
-            Sign Up with Google</button>
-          <button>
+            Login with Google</button>
+          <button onClick={handleGithubSignIn}>
             <img src='https://cdn.iconscout.com/icon/free/png-512/github-3691248-3073768.png' alt='github sign in' />
-            Sign Up with Github</button>
+            Login with Github</button>
         </div>
         <div className='login-signin'>
           Already have an account? <Link to='/login'>Login Here</Link>
