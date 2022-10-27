@@ -33,7 +33,7 @@
     text-align: justify;
 
 }
-.course-details>button{
+.course-details>a>button{
     background-color: #ff5a5a;
     padding: 10px 20px;
     color: #fff;

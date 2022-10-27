@@ -8,6 +8,7 @@ import Errorpage from '../pages/Errorpage/Errorpage';
 import PrivateRoute from './PrivateRoute';
 import Courses from '../pages/Courses/Courses';
 import CourseDetails from '../pages/CourseDetails/CourseDetails';
+import Checkout from '../pages/Checkout/Checkout';
 
 export const router = createBrowserRouter([
     {
@@ -30,8 +31,13 @@ export const router = createBrowserRouter([
           loader: ({params}) => fetch(`https://ada-academy-server.vercel.app/courses/${params.id}`)
         },
         {
+          path: '/courses/:id/premium-access',
+          element: <PrivateRoute><Checkout/></PrivateRoute>,
+          loader: ({params}) => fetch(`https://ada-academy-server.vercel.app/courses/${params.id}`)
+        },
+        {
           path: '/blogs',
-          element: <PrivateRoute><Blogs/></PrivateRoute>
+          element: <Blogs/>
         },
         {
           path: '/login',

@@ -6,7 +6,7 @@ import { faArrowLeft, faStar, faClock } from '@fortawesome/free-solid-svg-icons'
 
 const CourseDetails = () => {
     const course = useLoaderData()
-    const { courseImg, name, description, duration, instructor, outline, ratings } = course
+    const { id, courseImg, name, description, duration, instructor, outline, ratings } = course
     console.log(course)
     return (
         <div className='container course-details'>
@@ -29,7 +29,7 @@ const CourseDetails = () => {
                     </div>
                 </div>
             </div>
-            <button>Premium Access</button>
+            <Link to={`/courses/${id}/premium-access`}><button>Get Premium Access</button></Link>
 
         </div>
     )
