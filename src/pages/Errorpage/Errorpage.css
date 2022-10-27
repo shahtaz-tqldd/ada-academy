@@ -5,6 +5,7 @@
 .errorpage-container{
     text-align: center;
     margin: 20px auto;
+    min-height: 70vh;
 }
 .errorpage-container img{
     height: 260px;
