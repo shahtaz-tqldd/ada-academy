@@ -5,7 +5,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
 const CourseCard = ({ course }) => {
-    const { name, id, instractor, numberStudent, ratings, courseImg } = course
+    const { name, id, numberStudent, ratings, courseImg } = course
     console.log(course)
     return (
         <div className='course-card'>

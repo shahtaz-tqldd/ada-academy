@@ -1,11 +1,16 @@
 import React, { useContext } from 'react'
 import './Homepage.css'
 import headerImg from '../../assets/images/header-image.png';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+
+import CourseCard from '../../components/CourseCard/CourseCard';
+import '../Courses/Courses.css';
+
 
 const Homepage = () => {
   const {user} = useContext(AuthContext)
+  const courses = useLoaderData()
   return (
     <div className='home-container'>
       {/* Header section */}
@@ -26,7 +31,12 @@ const Homepage = () => {
       
       
       <section>
-
+      <div className='container'>
+            <h1 className='title-h1'>Courses we are offering</h1>
+            <div className='courses-container'>
+                {courses.map(course => <CourseCard key={course.id} course={course} />)}
+            </div>
+        </div>
       </section>
     </div>
   )
