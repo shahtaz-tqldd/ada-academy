@@ -1,44 +1,49 @@
-.container{
+.container {
     margin: 0 auto;
     max-width: 1200px;
+    padding: 0 20px;
 }
 
-.login-container{
+.login-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-top: 40px;
 }
 
-.login-img{
+.login-img {
     width: 500px;
 }
-.login-img img{
+
+.login-img img {
     width: 100%;
 }
 
-.login-form{
+.login-form {
     width: 500px;
     background-color: #ccebff;
     padding: 20px 0;
     /* box-shadow: 5px 10px 10px 7px #167D7F; */
 }
-.login-form h2{
+
+.login-form h2 {
     text-align: center;
     margin-bottom: 0px;
 }
 
-.login-form form{
+.login-form form {
     display: flex;
     flex-direction: column;
     width: 80%;
     margin: 0 auto;
 }
-.login-form form label{
+
+.login-form form label {
     margin: 20px 0 5px 10px;
     font-size: 14px;
 }
-.login-form form input{
+
+.login-form form input {
     padding: 10px 20px;
     background-color: rgb(255, 255, 255);
     border: none;
@@ -46,11 +51,12 @@
     font-size: 15px;
     outline: none;
 }
-.login-form form input:focus{
+
+.login-form form input:focus {
     outline: 2px solid #98D7C2;
 }
 
-.login-form form button{
+.login-form form button {
     padding: 10px 0;
     background-color: #167D7F;
     border: none;
@@ -61,22 +67,24 @@
     cursor: pointer;
 }
 
-.hr-line{
+.hr-line {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 30px 0;
 }
-.hr-line span{
+
+.hr-line span {
     height: 1px;
     width: 40%;
     background-color: rgb(153, 153, 153);
 }
-.hr-line p{
+
+.hr-line p {
     padding: 0 20px;
 }
 
-.err-msg{
+.err-msg {
     margin: 10px 20px;
     background-color: #ffdcdc;
     padding: 10px;
@@ -85,7 +93,7 @@
 }
 
 /* popup login */
-.popup-login{
+.popup-login {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -93,7 +101,7 @@
     margin: 0 auto;
 }
 
-.popup-login button{
+.popup-login button {
     padding: 10px 0;
     background-color: #ffffff;
     border: none;
@@ -105,44 +113,61 @@
     align-items: center;
     justify-content: center;
 }
-.popup-login button:nth-child(2n){
+
+.popup-login button:nth-child(2n) {
     background-color: #ffffff;
     color: rgb(61, 61, 61);
 }
 
-.popup-login button:nth-child(n):hover{
+.popup-login button:nth-child(n):hover {
     background-color: #1bbeff;
     color: rgb(255, 255, 255);
     transition: 0.25s;
 }
-.popup-login button:nth-child(2n):hover{
+
+.popup-login button:nth-child(2n):hover {
     background-color: #292929;
     color: rgb(255, 255, 255);
     transition: 0.25s;
 }
 
-.popup-login button img{
+.popup-login button img {
     height: 20px;
     margin-right: 10px;
 }
 
-.login-signin{
+.login-signin {
     text-align: center;
     margin-top: 25px;
 }
-.login-signin a{
+
+.login-signin a {
     text-decoration: none;
     color: #1b7eff;
 }
 
 @media screen and (max-width: 767px) {
-.login-container{
-    flex-direction: column;
-}
-.login-container{
-    margin-top: 0px;
-}
-.login-form{
-    padding: 30px 20px;
-}
+    .login-container {
+        flex-direction: column;
+    }
+
+    .login-container {
+        margin-top: 0px;
+    }
+
+    .login-form {
+        padding: 30px 20px;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .login-img {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .login-img img {
+        width: 90%;
+        
+    }
 }

@@ -1,38 +1,65 @@
-.title-h1{
+.title-h1 {
     margin: 50px 0;
 }
-.courses-container{
+
+.courses-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-.course-page-container{
+.course-page-container {
     display: grid;
     grid-template-columns: 3fr 1fr;
 }
 
-.sidebar-container{
+.sidebar-container {
     background-color: rgb(7, 140, 222);
     margin-left: 20px;
     position: sticky;
     top: 200px;
 }
-.sidebar-container h3{
+
+.sidebar-container h3 {
     color: #fff;
     text-align: center;
     margin-top: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
-.side-bar{
+
+.side-bar {
     margin: 20px;
     padding: 10px;
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
 }
-.side-bar:hover{
+
+.side-bar:hover {
     transition: 0.25s;
     background-color: rgb(21, 210, 128);
     color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+    .courses-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .sidebar-container {
+        display: none;
+    }
+
+    .course-page-container {
+        display: block !important;
+    }
+
+}
+@media screen and (min-width: 767px) and (max-width: 992px) {
+    .courses-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .course-page-container {
+        grid-template-columns: 2fr 1fr;
+    }
 }

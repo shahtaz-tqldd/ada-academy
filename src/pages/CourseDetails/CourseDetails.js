@@ -12,28 +12,28 @@ const CourseDetails = () => {
     console.log(course)
     const ref = useRef()
     return (
-        <div className='container course-details'>
+        <div ref={ref} className='container course-details'>
             <Link to="/courses"><div><FontAwesomeIcon icon={faArrowLeft} /> Go Back</div></Link>
-            <div ref={ref}>
-            <img src={courseImg} alt={name}></img>
-            <h1 className='title'>{name}</h1> 
-            <p className='time'><FontAwesomeIcon icon={faClock}/> Duration: {duration} <span><FontAwesomeIcon icon={faStar} /> {ratings} </span></p>
-            <ReactPrint trigger={()=> <div className='download'><FontAwesomeIcon icon={faDownload}/> Download</div>} content={()=> ref.current} ></ReactPrint>
-            
-            <h2>Course Description</h2>
-            <p className='description'>{description}</p>
-            <h2>What You Will Learn</h2>
-            <p>{outline.map((e, index) => <li key={index}>{e}</li>)}</p>
             <div>
-                <h2>Instractor</h2>
+                <img src={courseImg} alt={name}></img>
+                <h1 className='title'>{name}</h1>
+                <p className='time'><FontAwesomeIcon icon={faClock} /> Duration: {duration} <span><FontAwesomeIcon icon={faStar} /> {ratings} </span></p>
+                <ReactPrint trigger={() => <div className='download'><FontAwesomeIcon icon={faDownload} /> Download</div>} content={() => ref.current} ></ReactPrint>
+
+                <h2>Course Description</h2>
+                <p className='description'>{description}</p>
+                <h2>What You Will Learn</h2>
+                <p>{outline.map((e, index) => <li key={index}>{e}</li>)}</p>
                 <div>
-                    <img src={instructor.authorImg} alt={instructor.name} />
+                    <h2>Instractor</h2>
                     <div>
-                        <p>{instructor.name}</p>
-                        <span><FontAwesomeIcon icon={faStar} /> {instructor.rating}</span>
+                        <img src={instructor.authorImg} alt={instructor.name} />
+                        <div>
+                            <p>{instructor.name}</p>
+                            <span><FontAwesomeIcon icon={faStar} /> {instructor.rating}</span>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
             <Link to={`/courses/${id}/premium-access`}><button>Get Premium Access</button></Link>
         </div>
