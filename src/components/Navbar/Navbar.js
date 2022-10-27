@@ -27,7 +27,7 @@ const Navbar = () => {
 
                 <div className='nav-logo'>
                     <Link to='/'>
-                        <img src={logo} alt="quiz bee"></img>
+                        <img src={logo} alt="ada academy logo"></img>
                     </Link>
                 </div>
 
@@ -44,7 +44,7 @@ const Navbar = () => {
                             <div className='user-profile'>
                                 {user?.displayName}
                                 {
-                                    user.photoURL? <img src={user.photoURL} alt={user.displayName} />
+                                    user.photoURL? <img src={user.photoURL} alt={user.displayName} title={user?.displayName} />
                                     : <img src = {defaultImg} alt={user.displayName} />
 
                                 }

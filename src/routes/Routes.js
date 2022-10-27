@@ -6,6 +6,7 @@ import Login from '../pages/Login/Login';
 import SignUp from '../pages/SignUp/SignUp';
 import Errorpage from '../pages/Errorpage/Errorpage';
 import PrivateRoute from './PrivateRoute';
+import Courses from '../pages/Courses/Courses';
 
 export const router = createBrowserRouter([
     {
@@ -14,7 +15,13 @@ export const router = createBrowserRouter([
       children: [
         {
           path: '/',
-          element: <Homepage />
+          element: <Homepage />,
+          loader: () => fetch('https://ada-academy-server.vercel.app/courses')
+        },
+        {
+          path: '/courses',
+          element: <Courses/>,
+          loader: () => fetch('https://ada-academy-server.vercel.app/courses')
         },
         {
           path: '/blogs',
