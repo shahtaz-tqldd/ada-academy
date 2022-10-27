@@ -3,6 +3,7 @@ nav {
     position: sticky;
     top: 0;
     background-color: #f9f9f9;
+    z-index: 1000;
 }
 
 .nav-container {
