@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faSignIn, faXmark, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
+import Toggle from '../toggle-theme/Toggle';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false)
@@ -46,7 +47,7 @@ const Navbar = () => {
                                 {
                                     user.photoURL? <img src={user.photoURL} alt={user.displayName} title={user?.displayName} />
                                     : <img src = {defaultImg} alt={user.displayName} />
-
+                                    
                                 }
                                 <div className="dropdown">
                                     <FontAwesomeIcon icon={faCaretDown} />
@@ -63,7 +64,8 @@ const Navbar = () => {
                             </>
                     }
                 </div>
-
+                
+                <Toggle/>
                 <div className='toggle-icon'>
                     {
                         user ?
@@ -75,6 +77,7 @@ const Navbar = () => {
                             </div>
                             : <Link to='/login'><FontAwesomeIcon icon={faSignIn} /></Link>
                     }
+                    
                 </div>
             </div>
         </nav>

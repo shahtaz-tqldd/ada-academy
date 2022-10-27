@@ -9,8 +9,13 @@ header{
     justify-content: space-around;
     align-items: center;
 }
-.header-text h2{
+.header-text h3{
     font-size: 24px;
+    font-weight: 300;
+    color: rgb(64, 64, 64);
+}
+.header-text h2{
+    font-size: 40px;
     margin-bottom: 12px;
     color: rgb(64, 64, 64);
 }

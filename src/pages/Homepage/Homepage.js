@@ -16,8 +16,9 @@ const Homepage = () => {
       {/* Header section */}
       <header>
         <div className='header-text'>
-            <h2>Welcome to Ada Academy</h2>
-            <p>Learn to code from professional</p>
+            <h3>Welcome to</h3>
+            <h2>Ada Academy</h2>
+            <p>Learn to code from the professionals</p>
             {
               user?.uid? ''
               : <Link to='/login'><button>Get Started</button></Link>
@@ -32,7 +33,7 @@ const Homepage = () => {
       
       <section>
       <div className='container'>
-            <h1 className='title-h1'>Courses we are offering</h1>
+            <h1 className='title-h1'>Courses We are Offering</h1>
             <div className='courses-container'>
                 {courses.map(course => <CourseCard key={course.id} course={course} />)}
             </div>
