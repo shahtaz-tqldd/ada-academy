@@ -10,7 +10,7 @@
     background-color: #ff5a5a;
     color: #fff;
 }
-.course-details>div{
+.course-details>div>div{
     margin-top: 30px;
 }
 .title{
@@ -22,10 +22,10 @@
 .time{
     color: #ff3f3c;
 }
-.course-details>p>span{ 
+.course-details>div>p>span{ 
     margin-left: 100px;
 }
-.course-details>h2{
+.course-details>div>h2{
     margin: 20px 0 10px;
 }
 .description{
@@ -42,17 +42,26 @@
     font-size: 18px;
     border-radius: 5px;
 }
-.course-details>div>div>img{
+.course-details>div>div>div>img{
     height: 70px;
     width: 70px;
     object-fit: cover;
     border-radius: 50%;
     margin-right: 20px;
 }
-.course-details>div>div{
+.course-details>div>div>div{
     display: flex;
     margin: 20px 0 50px;
 }
 .course-details>div>div>div>p{
     font-size: 20px;
+}
+
+.download{
+    color: #005dc1;
+    cursor: pointer;
+    border: 1px solid rgb(175, 175, 175);
+    width: 110px;
+    padding: 10px;
+    border-radius: 5px;
 }
