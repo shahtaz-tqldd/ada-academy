@@ -25,7 +25,7 @@
 }
 .login-form h2{
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
 }
 
 .login-form form{
@@ -35,10 +35,11 @@
     margin: 0 auto;
 }
 .login-form form label{
-    margin-top: 20px;
+    margin: 20px 0 5px 10px;
+    font-size: 14px;
 }
 .login-form form input{
-    padding: 15px 20px;
+    padding: 10px 20px;
     background-color: rgb(255, 255, 255);
     border: none;
     border-radius: 8px;
