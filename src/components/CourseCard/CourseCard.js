@@ -12,9 +12,9 @@ const CourseCard = ({ course }) => {
             <Link to={`/courses/${id}`}>
             <img src={courseImg} alt={name} />
             <div>
-                <h2>{name}</h2>
+                <h3>{name}</h3>
                 <div>
-                    <p>Enrolled Student: {numberStudent}</p>
+                    <p><small>Enrolled Student: {numberStudent}</small></p>
                     <p><FontAwesomeIcon icon={faStar} /> {ratings} </p>
                 </div>
             </div>
