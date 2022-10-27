@@ -5,10 +5,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
 
-import {GoogleAuthProvider} from 'firebase/auth';
+import {GithubAuthProvider, GoogleAuthProvider} from 'firebase/auth';
 
 const Login = () => {
-  const { googleSignIn, signIn } = useContext(AuthContext);
+  const { googleSignIn, githubSignIn, signIn } = useContext(AuthContext);
   const [err, setErr] = useState('')
 
   const navigate = useNavigate();
@@ -36,19 +36,32 @@ const Login = () => {
       })
   }
   const googleProvider = new GoogleAuthProvider()
+  const githubProvider = new GithubAuthProvider()
+  
   const handleGoogleSignIn = () =>{
     googleSignIn(googleProvider)
       .then(result=>{
         const user = result.user;
         console.log(user)
-        setErr('')
         navigate(from, {replace: true});
       })
       .catch(error=>{
         console.error(error);
-        setErr('Your Email or password is incorrect');
       })
   }
+
+  const handleGithubSignIn = () =>{
+    githubSignIn(githubProvider)
+      .then(result=>{
+        const user = result.user;
+        console.log(user)
+        navigate(from, {replace: true});
+      })
+      .catch(error=>{
+        console.error(error);
+      })
+  }
+
   return (
     <div className='container login-container'>
         <div className='login-img'>
@@ -84,7 +97,7 @@ const Login = () => {
             <button onClick={handleGoogleSignIn}>
               <img src='https://www.shareicon.net/data/512x512/2016/07/10/119930_google_512x512.png' alt='google sign in'/>
               Login with Google</button>
-            <button>
+            <button onClick={handleGithubSignIn}>
               <img src='https://cdn.iconscout.com/icon/free/png-512/github-3691248-3073768.png' alt='github sign in'/>
               Login with Github</button>
           </div>
