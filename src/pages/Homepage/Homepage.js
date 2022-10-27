@@ -39,6 +39,21 @@ const Homepage = () => {
             </div>
         </div>
       </section>
+
+      <section>
+      <div className='container'>
+            <h1 className='title-h1'>Learn From Our Best Instractor</h1>
+            <div className='courses-container'>
+                {courses.slice(0,3).map(course => {
+                  return( 
+                  <div className='inst'>
+                   <img src={course.instructor.authorImg} />
+                   <h2>{course.instructor.name}</h2>
+                    </div>
+                  )})}
+            </div>
+        </div>
+      </section>
     </div>
   )
 }
